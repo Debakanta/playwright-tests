@@ -1,15 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: './src/tests',
+  retries: 2,
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
   },
   fullyParallel: true,
-  reporter: [['list'], ['html']],
+  reporter: [['list'], ['html'], ['allure-playwright']],
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://www.saucedemo.com',
+    headless: true,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
