@@ -11,7 +11,7 @@ export default defineConfig({
   reporter: [['list'], ['html'], ['allure-playwright']],
   use: {
     baseURL: 'https://www.saucedemo.com',
-    headless: false,
+    headless: true,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
